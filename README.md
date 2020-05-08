@@ -1,3 +1,3 @@
 # CBOR
 
-#Repository for Community Based Oyster Restoration collaboration
+Repository for Community Based Oyster Restoration collaboration
