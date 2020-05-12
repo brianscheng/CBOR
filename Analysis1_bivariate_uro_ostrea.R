@@ -1,21 +1,25 @@
 #bivariate relationship between urosalpinx and ostrea in richardson bay
 #BSC changed column names, # Drills = drills, and Live.oysters = olys
-setwd('C:/Users/bscheng/Box/Functional Eradication/Data/Data publication ready')
-library(ggplot2)
-library(dplyr)
-library(tidyr)
+library(tidyverse)
+library(janitor)
 
 data<-read.csv("All Shoreline Survey Data_Oct 23 2018_Master Copy.csv", na.strings = "N/A")
-glimpse(data)
-summary(data$Site)
-summary(data$olys)
+str(data)
+summary(data$Site) #11 'Sites' because Lanis Boulders is included
+summary(data$olys) #24 NAs, unclear why?
 which(is.na(data$olys))
 data[17,]
+data[654,] #tide was coming up, incomplete transect
 
 #remove rows with NA for drills or olys
 data1<-drop_na(data, drills) 
 data1<-drop_na(data, olys) #now 929 rows
-which(is.na(da))
+
+#what is data coverage across elevations?
+data1 %>%
+  tabyl (Site,Tidal.elevation)%>%
+  adorn_totals(c("row","col"))
+#if we are focusing on 1.5' elevation for the FE MS then we need to exclude some data
 
 #remove these sites, some are at different elevation
 data2<-filter(data1, !Site %in% c("Lanis Boulders", "Bothin","Blackies"))
