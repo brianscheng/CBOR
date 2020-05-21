@@ -1,12 +1,12 @@
-#bivariate relationship between urosalpinx and ostrea in richardson bay
-#BSC changed column names, # Drills = drills, and Live.oysters = olys
+#analysis of bivariate relationship between urosalpinx and ostrea in richardson bay
+#BSC changed column names within dataset, # Drills = drills, and Live.oysters = olys
 library(tidyverse)
 library(janitor)
 
 data<-read.csv("All Shoreline Survey Data_Oct 23 2018_Master Copy.csv", na.strings = "N/A")
 str(data)
 summary(data$Site) #11 'Sites' because Lanis Boulders is included
-summary(data$olys) #24 NAs, unclear why?
+summary(data$olys) #24 NAs
 which(is.na(data$olys))
 data[17,]
 data[654,] #tide was coming up, incomplete transect
@@ -25,11 +25,11 @@ data1 %>%
 data2<-filter(data1, !Site %in% c("Lanis Boulders", "Bothin","Blackies"))
 #remove data from Lanis boulders, bothin, and blackies pasture
 #not equal to is declared with ! before variable, %in% is an operator for listing out the condition)
-glimpse(data2)
-summarise(data2)
-table(data2$Site, data2$Tidal.elevation) #most common elevation is 1.5, why so few, eg pink house
+#now with 806 observations
 
-data3<-filter(data2, Tidal.elevation == 1.5)
+table(data2$Site, data2$Tidal.elevation) #most common elevation is 1.5
+
+data3<-filter(data2, Tidal.elevation == 1.5) #now with 324 quadrats
 table(data3$Site)
 table(data3$Site, data3$Date)
 #Aramburu Central - 06/17, 10/17, 12/17, 04/18, 07/18
@@ -40,7 +40,10 @@ table(data3$Site, data3$Date)
 #Lanis Beach      - 06/17, 09/17, 12/17, 04/18, 07/18
 #Pink House       -               12/17, 04/18,
 
+####plotting####--------------------------------------------------------------------------------------------
+
 #make a double errorbar plot with site level data
+#first with drill data
 drills.mean<-tapply(data3$drills, data3$Site, mean)
 drills.sd<-tapply(data3$drills, data3$Site, sd)
 drills.count<-tapply(data3$drills, data3$Site, length)
@@ -48,22 +51,20 @@ drills.sem<-drills.sd/(sqrt(drills.count))
 drills.mean
 drills.sd
 drills.sem
-
+#second with oyster data
 olys.mean<-tapply(data3$olys, data3$Site, mean)
 olys.sd<-tapply(data3$olys, data3$Site, sd)
 olys.count<-tapply(data3$olys, data3$Site, length)
 olys.sem<-olys.mean/sqrt(olys.count)
-
 olys.mean
 olys.sd
 olys.count
 olys.sem
-
+#stitch together summary data
 data_mean<-data.frame(drills.mean, drills.sem, olys.mean, olys.sem)
 data_mean$site<-factor(row.names(data_mean))
 str(data_mean)
 
-ggplot(data_mean, aes(x=drills.mean, y=olys.mean))+geom_point()
 ggplot(data_mean, aes(x=drills.mean, y=olys.mean))+geom_point()+
   geom_errorbar(ymin = olys.mean-olys.sem, ymax = olys.mean+olys.sem, width = 0)+
   geom_errorbarh(xmin = drills.mean-drills.sem, xmax = drills.mean+drills.sem, height = 0)+
@@ -71,9 +72,6 @@ ggplot(data_mean, aes(x=drills.mean, y=olys.mean))+geom_point()+
   geom_text(aes(label=site), hjust = -.2, vjust = -.3)
 
 #second approach with spring quadrats only, 2017 for focal four and 2018 for remainder
-
-#try quadrat level data?
-
 str(data2)
 ggplot(data2,aes(x=drills, y=olys))+geom_point()
 ggplot(data2,aes(x=drills, y=olys, color=Site))+geom_point()
@@ -98,9 +96,9 @@ cor.test(data.b$drills,data.b$olys, method = "pearson")
 
 cor(data.b$drills,data.b$olys, method = "spearman")
 cor.test(data.b$drills,data.b$olys, method = "spearman") #ties in rank
-#cannot compute exact p-value with ties
+#spearman does not assume linearity but cannot compute exact p-value with ties
 
-#permutation approach
+#permutation approach here to generate p-value
 attach(data.b)                                     #for easier to read code
 cor.test(drills, olys, method="spearman")$estimate # calculate original rho, yields rho = -0.549
 test<-function(drills) suppressWarnings(cor.test(drills,olys, method="spearman")$estimate) 
@@ -111,23 +109,5 @@ abline(v=rho)
 
 p.out <- sum(abs(p) > abs(rho))    # Count of strict (absolute) exceedances, need to take absolute value of rho because it is negative
 p.at <- sum(abs(p) == rho)    # Count of equalities, if any
-(p.out + p.at /2) / length(p) # Proportion of exceedances: the p-value.
+(p.out + p.at /2) / length(p) # Proportion of exceedances: the p-value, which is 0
 detach(data.b)
-
-#deconstructing code
-attach(data.b)                                     #for easier to read code
-cor.test(drills, olys, method="spearman")$estimate # calculate original rho, yields rho = -0.549
-test<-function(drills) {
-  suppressWarnings(cor.test(drills,olys, method="spearman")$estimate) 
-}
-rho<-test(drills)
-p<-replicate(10000, test(sample(drills,length(drills),replace=F))) #simulated permutation distribution
-hist(p, xlim=range(-1,1))
-abline(v=rho)
-
-p.out <- sum(abs(p) > abs(rho))    # Count of strict (absolute) exceedances, need to take absolute value of rho because it is negative
-p.at <- sum(abs(p) == rho)    # Count of equalities, if any
-(p.out + p.at /2) / length(p) # Proportion of exceedances: the p-value.
-detach(data.b)
-
-cor.test(data.b$drills,data.b$drills, method="spearman")$estimate
