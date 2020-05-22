@@ -14,15 +14,6 @@ size<-read.csv(here('CBOR_closedtreat_oystersize_original.csv'))
 #getting rid of the notes column
 size<-size[-c(13)]
 
-#making sure all variables are in the correct data type
-size$Size_cm2<-as.numeric(as.character(size$Size_cm2)) #have to use as.character first because of how things are internally stored
-size$size_before_cm2<-as.numeric(as.character(size$size_before_cm2)) 
-size$Site<-factor(size$Site, levels = c('Lanis','Cove','A-south','A-central'))
-size$Initial.oys<-as.numeric(size$Initial.oys)
-size$Alive<-as.numeric(size$Alive)
-size$Dead<-as.numeric(size$Dead)
-size$Height<-factor(size$Height, levels=c('0.5','1.5','2.5'))
-
 #getting rid of rows with NAs
 size <- drop_na(size)
 
