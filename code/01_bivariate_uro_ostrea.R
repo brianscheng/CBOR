@@ -3,7 +3,7 @@
 library(tidyverse)
 library(janitor)
 
-data<-read.csv("All Shoreline Survey Data_Oct 23 2018_Master Copy.csv", na.strings = "N/A")
+data<-read.csv("data/All Shoreline Survey Data_Oct 23 2018_Master Copy.csv", na.strings = "N/A")
 str(data)
 summary(data$Site) #11 'Sites' because Lanis Boulders is included
 summary(data$olys) #24 NAs
@@ -81,7 +81,7 @@ ggplot(data2,aes(x=drills, y=olys, color=Site))+geom_point()
 #so each site has 10 quadrats, this is part of the reduced dataset to maximize comparability
 #all sites are before eradication efforts and at 1.5 foot elevation
 
-data.b<-read.csv("Drill oyster correlation data 2020-04-23.csv")
+data.b<-read.csv("data/Drill oyster correlation data 2020-04-23.csv")
 str(data.b)
 #7 sites, with 10 quadrats each to visualize relationship between oysters and drills
 
