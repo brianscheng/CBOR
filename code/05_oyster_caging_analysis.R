@@ -12,8 +12,7 @@ library(dplyr)
 library(here)
 
 #data import
-setwd("C:/Users/bscheng/Documents/Projects/Functional Eradication/Data/Raw data/Cage Experiment")
-data<-read.csv("Cage experiment recovery data 2018-08-13 RAW.csv")
+data<-read.csv(here('data/Cage experiment recovery data 2018-08-13 RAW.csv'), stringsAsFactors = TRUE)
 
 #data curation
 str(data)
@@ -22,11 +21,10 @@ data[117,17]
 data[117,17]<-"yes" #exclude, it's an NA
 summary(data$Exclude)
 data<-filter(data,Exclude =="no")
-#data<-subset(data,Exclude=="no" ) #compromised cage plots, 6 of them + 1 NA
+data$Height<-factor(data$Height) #set factor for height
 
+#variable creation
 data$prop.surv<-data$Alive/data$Initial.oys #create proportional survival variable
-data$Height<-factor(data$Height) #set factor
-
 data$Dead2<-data$Initial.oys-data$Alive #create a dead2 variable (dead+missing)data
 y<-cbind(data$Alive, data$Dead2)
 
@@ -50,8 +48,7 @@ tapply(data.mid$Drilled, data.mid$Cage.treat, sum) #148 drilled in open, 127 in 
 
 table(data.mid$Alive, data.mid$Cage.treat) #frequency tables
 table(data.mid$Alive, data.mid$Cage.treat, data.mid$Erad.treat)
-
-tapply(data.mid$prop.surv)
+table(data.mid$Site, data.mid$Cage.treat)
 
 #proportional survival across treatments
 initial = tapply(data.mid$Initial.oys, list(data.mid$Cage.treat,data.mid$Erad.treat, data.mid$Site2), sum)
@@ -61,30 +58,34 @@ proportional.survival
 
 #graphical exploration
 cage.plot<-ggplot(data.mid,aes(x=Cage.treat,y=prop.surv, fill=Erad.treat))+geom_boxplot()+facet_grid(Site2~.)+theme_bw()+
-  labs(y="Oyster survival ", x="Treatment")+
+  labs(y="Oyster survival (proportional) ", x="Treatment")+
   theme(legend.title=element_text(size=16),legend.text=element_text(size=14),
         axis.text.y=element_text(size=16),axis.title.y=element_text(size=18, vjust=1.2),
         axis.text.x=element_text(size=16),axis.title.x=element_text(size=18),
-        strip.text.y = element_text(size = 14))
+        panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
+        strip.text.y = element_blank())
 cage.plot2<- cage.plot+guides(fill=guide_legend(title="Treatment"))+scale_fill_viridis_d(option="plasma")+
   scale_x_discrete(labels = c("caged", "open", "partial cage"))
 cage.plot2
+
 ppi=300
-png("oyster cage plot.png",width=12*ppi, height=9*ppi, res=ppi)
+png("figures/oyster cage plot.png", width=12*ppi, height=9*ppi, res=ppi)
 cage.plot2
 dev.off()
 
 #data.mid analysis using glmer
 m1<-glmer(y.mid~ Cage.treat * Erad.treat + (1|Site), family="binomial", data=data.mid)
 summary(m1)
+Anova(m1)
 #warnings - evidence for complete separation
 
 #using bias reduced glm
 m2<-brglm(formula = y.mid~Cage.treat * Erad.treat, family = "binomial", data=data.mid)
 summary(m2)
 plot(m2)
+Anova(m2)
 
-#posthoc tests
+#posthoc tests if desired
 K1 <- glht(m2, mcp(Cage.treat = "Tukey"))$linfct
 K2 <- glht(m2, mcp(Erad.treat = "Tukey"))$linfct
 summary(glht(m2, linfct = rbind(K1, K2)))
