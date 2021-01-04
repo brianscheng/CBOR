@@ -1,0 +1,193 @@
+Height,Site,Site2,Block,Tile,Erad.treat,Cage.treat,Initial.oys,Alive,Missing,Dead,Drilled,Boxes,Scars,Uros.on.tile,Notes,Exclude
+1.5,Lanis,Lanis Beach,1,1,Eradication,open,9,0,1,8,6,1,1,0,candidate photo,no
+1.5,Lanis,Lanis Beach,1,3,Eradication,closed,10,10,0,0,0,0,0,0,candidate photo,no
+1.5,Lanis,Lanis Beach,1,4,Eradication,partial,9,0,0,9,4,5,0,0,1 drilled is a scar (uro kept going?),no
+1.5,Lanis,Lanis Beach,2,5,Eradication,partial,10,0,2,8,3,5,0,1,,no
+1.5,Lanis,Lanis Beach,2,6,Eradication,open,10,0,0,10,7,3,0,0,,no
+1.5,Lanis,Lanis Beach,2,7,Eradication,closed,9,9,1,0,0,0,0,1,,no
+1.5,Lanis,Lanis Beach,3,8,Eradication,closed,9,8,1,0,0,0,0,0,,no
+1.5,Lanis,Lanis Beach,3,9,Eradication,open,10,0,0,10,10,0,0,0,,no
+1.5,Lanis,Lanis Beach,3,10,Eradication,partial,10,0,0,10,6,4,0,0,,no
+1.5,Lanis,Lanis Beach,4,11,Eradication,closed,10,7,0,3,0,3,0,0,"Brian knocked one alive olympia off, dead equals position 1, 2, 6",no
+1.5,Lanis,Lanis Beach,4,12,Eradication,partial,10,0,0,10,7,0,3,1,,no
+1.5,Lanis,Lanis Beach,4,13,Eradication,open,9,0,1,8,8,0,0,0,,no
+1.5,Lanis,Lanis Beach,5,14,Eradication,closed,10,10,0,0,0,0,0,0,,no
+1.5,Lanis,Lanis Beach,5,15,Eradication,partial,10,0,0,10,8,2,0,0,,no
+1.5,Lanis,Lanis Beach,5,16,Eradication,open,10,0,0,10,9,0,1,0,,no
+1.5,Lanis,Lanis Beach,6,17,Eradication,open,8,0,0,8,5,2,1,0,,no
+1.5,Lanis,Lanis Beach,6,18,Eradication,closed,10,10,0,0,0,0,0,0,,no
+1.5,Lanis,Lanis Beach,6,19,Eradication,partial,10,0,0,10,10,0,0,1,,no
+1.5,Lanis,Lanis Beach,7,20,Eradication,closed,10,8,0,2,0,2,0,0,Corrected via photo - added 2 boxes,no
+1.5,Lanis,Lanis Beach,7,21,Eradication,partial,10,0,0,10,4,6,0,0,,no
+1.5,Lanis,Lanis Beach,7,22,Eradication,open,10,0,1,9,1,7,1,0,,no
+1.5,Lanis,Lanis Beach,8,23,Eradication,open,10,0,1,9,7,2,0,0,one new olympia recruit,no
+1.5,Lanis,Lanis Beach,8,24,Eradication,partial,10,0,2,8,6,2,0,0,,no
+1.5,Lanis,Lanis Beach,8,25,Eradication,closed,10,10,0,0,0,0,0,0,,no
+1.5,Cove,Lanis Beach,9,26,Control,partial,9,0,1,8,7,0,1,1,Corrected - 8 not 7 dead,no
+1.5,Cove,Lanis Beach,9,27,Control,open,10,0,2,8,7,1,0,0,,no
+1.5,Cove,Lanis Beach,9,28,Control,closed,10,6,0,4,1,3,0,23,Yikes! Cage failed,yes
+1.5,Cove,Lanis Beach,10,29,Control,open,10,0,1,9,7,0,2,0,,no
+1.5,Cove,Lanis Beach,10,30,Control,partial,10,0,2,8,5,3,0,2,,no
+1.5,Cove,Lanis Beach,10,31,Control,closed,10,9,0,1,0,1,0,0,,no
+1.5,Cove,Lanis Beach,11,32,Control,partial,8,0,1,7,0,5,2,1,,no
+1.5,Cove,Lanis Beach,11,33,Control,open,10,0,0,10,6,2,2,2,,no
+1.5,Cove,Lanis Beach,11,34,Control,closed,9,8,1,0,0,0,0,0,,no
+1.5,Cove,Lanis Beach,12,35,Control,open,10,0,3,7,6,1,0,1,,no
+1.5,Cove,Lanis Beach,12,36,Control,closed,10,0,0,10,0,10,0,13,Exclude! Hard to see bore holes,yes
+1.5,Cove,Lanis Beach,12,37,Control,partial,10,0,1,9,5,2,2,1,,no
+1.5,Cove,Lanis Beach,13,38,Control,closed,10,10,0,0,0,0,0,0,,no
+1.5,Cove,Lanis Beach,13,39,Control,partial,10,0,0,10,0,8,2,4,Muddy,no
+1.5,Cove,Lanis Beach,13,40,Control,open,10,0,1,9,3,5,1,0,One oyster loose,no
+1.5,Cove,Lanis Beach,14,41,Control,partial,10,0,0,10,5,3,2,0,,no
+1.5,Cove,Lanis Beach,14,42,Control,closed,10,0,0,10,6,4,0,6,Exclude,yes
+1.5,Cove,Lanis Beach,14,43,Control,open,10,0,2,8,5,0,3,0,,no
+1.5,Cove,Lanis Beach,15,44,Control,open,10,0,0,10,10,0,0,0,,no
+1.5,Cove,Lanis Beach,15,45,Control,closed,10,8,2,0,0,0,0,0,,no
+1.5,Cove,Lanis Beach,15,46,Control,partial,10,0,3,7,1,3,3,1,,no
+1.5,Cove,Lanis Beach,16,47,Control,closed,10,10,0,0,0,0,0,0,,no
+1.5,Cove,Lanis Beach,16,48,Control,partial,10,0,2,8,7,0,1,3,,no
+1.5,Cove,Lanis Beach,16,49,Control,open,10,0,4,6,5,1,0,0,,no
+0.5,Cove,Lanis Beach,1,50,Control,closed,10,10,0,0,0,0,0,0,One loose alive,no
+0.5,Cove,Lanis Beach,1,51,Control,partial,10,4,6,0,0,0,0,1,One loose,no
+0.5,Cove,Lanis Beach,1,52,Control,open,10,4,2,4,4,0,0,1,One alive but drilled,no
+0.5,Cove,Lanis Beach,2,53,Control,partial,10,4,0,6,1,3,2,2,Many broken shells,no
+0.5,Cove,Lanis Beach,2,54,Control,open,10,5,0,5,0,3,2,2,Two alive but drilled,no
+0.5,Cove,Lanis Beach,2,55,Control,closed,10,9,0,1,0,0,1,0,"One alive, loose",no
+0.5,Cove,Lanis Beach,3,56,Control,partial,10,0,0,10,6,2,2,1,,no
+0.5,Cove,Lanis Beach,3,57,Control,closed,10,9,0,1,0,0,1,0,Plus one settler,no
+0.5,Cove,Lanis Beach,3,58,Control,open,10,0,0,10,6,3,1,4,,no
+0.5,Cove,Lanis Beach,4,59,Control,partial,10,4,0,6,4,1,1,5,"Two loose, three drilled but alive",no
+0.5,Cove,Lanis Beach,4,60,Control,open,10,7,1,2,2,0,0,4,Five drilled but alive,no
+0.5,Cove,Lanis Beach,4,61,Control,closed,9,6,2,1,0,1,0,0,,no
+0.5,Cove,Lanis Beach,5,62,Control,partial,10,1,0,9,9,0,0,5,,no
+0.5,Cove,Lanis Beach,5,63,Control,open,10,7,0,3,2,1,0,4,,no
+0.5,Cove,Lanis Beach,5,64,Control,closed,10,10,0,0,0,0,0,0,,no
+0.5,Cove,Lanis Beach,6,65,Control,partial,9,5,0,4,3,1,0,3,,no
+0.5,Cove,Lanis Beach,6,66,Control,closed,9,8,1,0,0,0,0,0,Two loose,no
+0.5,Cove,Lanis Beach,6,67,Control,open,10,0,0,9,5,4,0,0,,no
+0.5,Cove,Lanis Beach,7,68,Control,partial,10,5,4,1,0,1,0,0,This cage was lying in the mud,no
+0.5,Cove,Lanis Beach,7,69,Control,closed,9,9,0,0,0,0,0,0,,no
+0.5,Cove,Lanis Beach,7,70,Control,open,10,0,0,7,7,0,0,1,,no
+0.5,Cove,Lanis Beach,8,71,Control,open,8,0,2,6,5,0,1,2,,no
+0.5,Cove,Lanis Beach,8,72,Control,closed,10,8,1,1,0,1,0,0,,no
+0.5,Cove,Lanis Beach,8,73,Control,partial,10,0,0,10,9,0,1,2,One drilled loose,no
+2.5,Cove,Lanis Beach,9,74,Control,partial,10,8,0,2,1,0,1,0,Corrected - 0 not 6 boxes,no
+2.5,Cove,Lanis Beach,9,75,Control,open,9,1,3,5,5,0,0,0,,no
+2.5,Cove,Lanis Beach,9,76,Control,closed,10,10,0,0,0,0,0,0,One loose alive,no
+2.5,Cove,Lanis Beach,10,201,Control,partial,8,0,3,5,5,0,0,0,"Four loose alive, need to reference photo",no
+2.5,Cove,Lanis Beach,10,78,Control,closed,10,8,0,2,0,2,0,0,,no
+2.5,Cove,Lanis Beach,10,79,Control,open,10,7,2,1,1,0,0,2,Ton of ulva,no
+2.5,Cove,Lanis Beach,11,80,Control,closed,10,9,0,1,0,1,0,0,,no
+2.5,Cove,Lanis Beach,11,81,Control,partial,10,0,0,10,7,0,3,0,,no
+2.5,Cove,Lanis Beach,11,100,Control,open,10,0,1,9,8,1,0,0,Photo'd,no
+2.5,Cove,Lanis Beach,12,83,Control,open,10,6,0,4,2,0,2,0,Ton of ulva,no
+2.5,Cove,Lanis Beach,12,84,Control,closed,10,7,1,2,1,1,0,3,Exclude?,yes
+2.5,Cove,Lanis Beach,12,85,Control,partial,10,1,0,9,6,3,0,3,"One loose alive oyster, missing",no
+2.5,Cove,Lanis Beach,13,86,Control,closed,10,10,0,0,0,0,0,0,,no
+2.5,Cove,Lanis Beach,13,87,Control,partial,10,2,0,8,4,0,4,0,,no
+2.5,Cove,Lanis Beach,13,88,Control,open,10,5,0,5,5,0,0,0,"3 of 5 alive and drill, ulva",no
+2.5,Cove,Lanis Beach,14,89,Control,partial,10,7,1,3,2,0,1,1,One loose alive,no
+2.5,Cove,Lanis Beach,14,90,Control,open,9,7,0,2,2,0,0,2,One Uro drilling,no
+2.5,Cove,Lanis Beach,14,91,Control,closed,10,2,0,8,7,1,0,0,One loose alive,yes
+2.5,Cove,Lanis Beach,15,99,Control,partial,7,2,1,4,3,1,0,1,,no
+2.5,Cove,Lanis Beach,15,93,Control,open,10,8,0,2,2,0,0,1,,no
+2.5,Cove,Lanis Beach,15,94,Control,closed,10,9,0,1,0,0,1,0,,no
+2.5,Cove,Lanis Beach,16,95,Control,closed,10,9,1,0,0,0,0,0,,no
+2.5,Cove,Lanis Beach,16,96,Control,partial,9,1,3,5,5,0,0,0,"One loose dead, reference photo",no
+2.5,Cove,Lanis Beach,16,97,Control,open,9,5,4,0,0,0,0,0,"Lots of ulva, one alive loose",no
+1.5,A-south,Aramburu,1,101,Control,partial,10,0,0,10,8,2,0,0,,no
+1.5,A-south,Aramburu,1,102,Control,open,10,0,8,2,2,0,0,0,,no
+1.5,A-south,Aramburu,1,103,Control,closed,10,8,0,2,2,0,0,3,Tear in screen,yes
+1.5,A-south,Aramburu,2,104,Control,closed,10,9,0,1,0,1,0,0,,no
+1.5,A-south,Aramburu,2,105,Control,partial,10,1,7,2,1,0,1,0,,no
+1.5,A-south,Aramburu,2,106,Control,open,9,0,8,1,1,0,0,0,,no
+1.5,A-south,Aramburu,3,107,Control,open,10,0,10,0,0,0,0,0,,no
+1.5,A-south,Aramburu,3,108,Control,partial,10,0,9,1,1,0,0,0,Shell fragments,no
+1.5,A-south,Aramburu,3,109,Control,closed,10,8,1,1,0,1,0,0,,no
+1.5,A-south,Aramburu,4,110,Control,open,10,0,5,5,5,0,0,0,,no
+1.5,A-south,Aramburu,4,111,Control,closed,10,10,0,0,0,0,0,0,,no
+1.5,A-south,Aramburu,4,112,Control,partial,10,0,6,4,3,0,1,0,,no
+1.5,A-south,Aramburu,5,113,Control,open,10,0,5,5,3,1,1,0,,no
+1.5,A-south,Aramburu,5,114,Control,partial,10,0,8,2,0,2,0,0,"Mystery live crab, Chela keyed to C. jordani, unless its M. magister (unclear about how many spines to count)",no
+1.5,A-south,Aramburu,5,115,Control,closed,10,6,1,3,0,2,1,0,,no
+1.5,A-south,Aramburu,6,116,Control,closed,10,9,0,1,0,1,0,0,,no
+1.5,A-south,Aramburu,6,117,Control,open,10,0,2,8,5,0,3,0,,no
+1.5,A-south,Aramburu,6,118,Control,partial,10,3,6,1,1,0,0,1,,no
+1.5,A-south,Aramburu,7,119,Control,partial,10,0,0,10,8,2,0,1,C. antennarius - 37 mm CW,no
+1.5,A-south,Aramburu,7,120,Control,closed,10,10,0,0,0,0,0,0,,no
+1.5,A-south,Aramburu,7,121,Control,open,9,,,,,,,,missing!?,no
+1.5,A-south,Aramburu,8,122,Control,closed,9,9,0,0,0,0,0,0,,no
+1.5,A-south,Aramburu,8,123,Control,open,10,0,1,9,7,0,2,0,,no
+1.5,A-south,Aramburu,8,124,Control,partial,10,0,3,7,6,0,1,0,,no
+1.5,A-central,Aramburu,9,125,Eradication,partial,10,0,1,9,7,2,0,0,,no
+1.5,A-central,Aramburu,9,126,Eradication,closed,10,7,0,3,0,3,0,0,Corrected - 3 dead input as boxes from picture,no
+1.5,A-central,Aramburu,9,127,Eradication,open,10,0,2,8,7,0,1,0,,no
+1.5,A-central,Aramburu,10,128,Eradication,closed,10,9,0,1,0,1,0,0,,no
+1.5,A-central,Aramburu,10,129,Eradication,open,10,0,3,7,4,1,2,0,,no
+1.5,A-central,Aramburu,10,130,Eradication,partial,10,0,1,9,6,3,0,0,,no
+1.5,A-central,Aramburu,11,131,Eradication,closed,10,8,0,2,0,2,0,0,,no
+1.5,A-central,Aramburu,11,132,Eradication,open,10,0,2,8,4,4,0,0,,no
+1.5,A-central,Aramburu,11,133,Eradication,partial,10,0,10,0,0,0,0,1,,no
+1.5,A-central,Aramburu,12,134,Eradication,partial,10,0,3,7,4,0,3,0,,no
+1.5,A-central,Aramburu,12,135,Eradication,closed,10,10,0,0,0,0,0,0,,no
+1.5,A-central,Aramburu,12,136,Eradication,open,10,0,5,5,3,0,2,0,,no
+1.5,A-central,Aramburu,13,137,Eradication,open,10,0,8,2,1,0,1,0,,no
+1.5,A-central,Aramburu,13,138,Eradication,closed,10,9,0,1,0,1,0,0,,no
+1.5,A-central,Aramburu,13,139,Eradication,partial,10,1,8,1,0,1,0,0,,no
+1.5,A-central,Aramburu,14,140,Eradication,open,10,0,10,0,0,0,0,0,,no
+1.5,A-central,Aramburu,14,141,Eradication,partial,10,0,7,3,1,1,1,0,,no
+1.5,A-central,Aramburu,14,142,Eradication,closed,10,10,0,0,0,0,0,0,,no
+1.5,A-central,Aramburu,15,143,Eradication,open,10,0,9,1,0,1,0,0,,no
+1.5,A-central,Aramburu,15,144,Eradication,closed,10,5,0,5,0,5,0,0,Olympia recruit at noon position,no
+1.5,A-central,Aramburu,15,145,Eradication,partial,10,0,6,4,2,2,0,0,,no
+1.5,A-central,Aramburu,16,146,Eradication,partial,9,0,5,4,1,0,3,0,,no
+1.5,A-central,Aramburu,16,147,Eradication,open,10,0,1,9,4,4,1,0,,no
+1.5,A-central,Aramburu,16,148,Eradication,closed,10,10,0,0,0,0,0,0,,no
+2.5,A-south,Aramburu,1,149,Control,closed,10,10,0,0,0,0,0,0,,no
+2.5,A-south,Aramburu,1,150,Control,partial,9,4,5,0,0,0,0,0,,no
+2.5,A-south,Aramburu,1,151,Control,open,10,6,3,1,0,0,1,0,,no
+2.5,A-south,Aramburu,2,152,Control,open,10,5,5,0,0,0,0,0,,no
+2.5,A-south,Aramburu,2,153,Control,closed,10,8,0,2,0,2,0,0,,no
+2.5,A-south,Aramburu,2,154,Control,partial,10,1,9,0,0,0,0,0,Shell fragments,no
+2.5,A-south,Aramburu,3,155,Control,partial,10,8,2,0,0,0,0,0,,no
+2.5,A-south,Aramburu,3,156,Control,open,10,0,10,0,0,0,0,0,,no
+2.5,A-south,Aramburu,3,157,Control,closed,10,10,0,0,0,0,0,0,,no
+2.5,A-south,Aramburu,4,158,Control,closed,11,8,0,3,0,1,2,0,,no
+2.5,A-south,Aramburu,4,159,Control,open,10,7,1,2,0,1,1,0,,no
+2.5,A-south,Aramburu,4,160,Control,partial,9,0,9,0,0,0,0,0,,no
+2.5,A-south,Aramburu,5,161,Control,partial,10,1,3,6,2,4,0,0,,no
+2.5,A-south,Aramburu,5,162,Control,open,10,3,7,0,0,0,0,0,,no
+2.5,A-south,Aramburu,5,163,Control,closed,10,9,0,1,0,1,0,0,,no
+2.5,A-south,Aramburu,6,164,Control,open,10,5,5,0,0,0,0,0,,no
+2.5,A-south,Aramburu,6,165,Control,partial,10,2,5,3,2,1,0,0,,no
+2.5,A-south,Aramburu,6,166,Control,closed,10,9,0,1,0,1,0,0,One drilled but alive,no
+2.5,A-south,Aramburu,7,167,Control,open,10,7,3,0,0,0,0,0,,no
+2.5,A-south,Aramburu,7,168,Control,partial,10,0,8,2,1,0,1,0,,no
+2.5,A-south,Aramburu,7,169,Control,closed,10,8,0,2,0,2,0,0,,no
+2.5,A-south,Aramburu,8,170,Control,partial,10,2,8,0,0,0,0,0,,no
+2.5,A-south,Aramburu,8,171,Control,open,10,0,10,0,0,0,0,0,,no
+2.5,A-south,Aramburu,8,172,Control,closed,10,7,0,3,0,3,0,0,,no
+0.5,A-south,Aramburu,9,173,Control,closed,10,8,1,1,0,1,0,0,,no
+0.5,A-south,Aramburu,9,174,Control,partial,10,0,8,2,0,0,2,0,,no
+0.5,A-south,Aramburu,9,175,Control,open,10,0,6,4,0,1,3,0,,no
+0.5,A-south,Aramburu,10,176,Control,open,10,1,7,2,2,0,0,0,,no
+0.5,A-south,Aramburu,10,177,Control,closed,9,8,0,1,0,1,0,0,,no
+0.5,A-south,Aramburu,10,178,Control,partial,10,1,7,2,0,2,0,0,Fish eggs!,no
+0.5,A-south,Aramburu,11,179,Control,closed,10,8,1,1,0,1,0,0,,no
+0.5,A-south,Aramburu,11,180,Control,open,10,3,5,2,1,0,1,0,,no
+0.5,A-south,Aramburu,11,181,Control,partial,10,0,3,7,2,2,3,0,"Myster crab, C. gracilis? 55 CW, probably C. jordani",no
+0.5,A-south,Aramburu,12,182,Control,closed,9,7,1,1,0,1,0,0,,no
+0.5,A-south,Aramburu,12,183,Control,partial,10,0,5,5,3,0,2,0,,no
+0.5,A-south,Aramburu,12,184,Control,open,10,1,9,0,0,0,0,0,,no
+0.5,A-south,Aramburu,13,185,Control,partial,10,6,1,3,0,3,0,0,,no
+0.5,A-south,Aramburu,13,186,Control,open,10,0,6,4,2,1,1,0,,no
+0.5,A-south,Aramburu,13,187,Control,closed,10,7,1,2,0,2,0,0,,no
+0.5,A-south,Aramburu,14,188,Control,partial,10,5,1,4,0,1,3,1,"C. antennarius - 39 mm CW, one alive was drilled",no
+0.5,A-south,Aramburu,14,189,Control,open,10,0,7,3,0,0,3,0,,no
+0.5,A-south,Aramburu,14,190,Control,closed,10,9,1,0,0,0,0,0,,no
+0.5,A-south,Aramburu,15,191,Control,closed,10,10,0,0,0,0,0,0,,no
+0.5,A-south,Aramburu,15,192,Control,partial,9,0,7,2,0,1,1,0,C. antennarius - 49 mm CW,no
+0.5,A-south,Aramburu,15,193,Control,open,10,0,7,3,0,0,3,0,,no
+0.5,A-south,Aramburu,16,194,Control,closed,10,8,0,2,0,2,0,0,,no
+0.5,A-south,Aramburu,16,195,Control,partial,10,0,6,4,2,0,2,1,C. antennarius,no
+0.5,A-south,Aramburu,16,196,Control,open,10,0,9,1,1,0,0,0,,no
