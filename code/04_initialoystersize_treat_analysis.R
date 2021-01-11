@@ -11,7 +11,7 @@ require(MuMIn)
 require(car)
 
 
-size<-read.csv('CBOR_oysterinitialsizecheck_clean_2020.csv')
+size<-read.csv('data/CBOR_oysterinitialsizecheck_clean_2020.csv', stringsAsFactors = TRUE)
 str(size)
 size$tile<-as.factor(size$tile)
 levels(size$cage.treat)
@@ -35,6 +35,7 @@ initial+geom_boxplot()+
 
 null<-glmmTMB(size.before~1+(1|tile), data = size, family = 'gaussian') #null intercept model
 mod1<-glmmTMB(size.before~cage.treat+(1|tile), data = size, family = 'gaussian') #looking at the differences across treatment
+mod2<-glmmTMB(size.before~cage.treat*Site+(1|tile), data = size, family = 'gaussian') #looking at the differences across treatment
 
 summary(null)
 summary(mod1)

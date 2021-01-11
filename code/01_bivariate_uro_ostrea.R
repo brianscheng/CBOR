@@ -3,7 +3,7 @@
 library(tidyverse)
 library(janitor)
 
-data<-read.csv("data/All Shoreline Survey Data_Oct 23 2018_Master Copy.csv", na.strings = "N/A")
+data<-read.csv("data/All Shoreline Survey Data_Oct 23 2018_Master Copy.csv", na.strings = "N/A", stringsAsFactors = TRUE)
 str(data)
 summary(data$Site) #11 'Sites' because Lanis Boulders is included
 summary(data$olys) #24 NAs

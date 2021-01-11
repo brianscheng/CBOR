@@ -90,9 +90,3 @@ aovmod.size
 tukmod.size<-TukeyHSD(aovmod.size)
 par(mar=c(5,8,4,1)+.1)
 plot(tukmod.size, las=1)
-
-
-
-
-
-
