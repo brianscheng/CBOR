@@ -20,7 +20,7 @@ require(pscl)
 require(car)
 
 #reading in clean data
-size<-read.csv(here('CBOR_closedtreat_oystersize_clean_2020.csv'))
+size<-read.csv(here('data/CBOR_closedtreat_oystersize_clean_2020.csv'))
 
 #Initial look-------------------------------------------------------
 #we are only analyzing tidal height 1.5 for this analysis, filtering other tidal hieghts out:
@@ -36,6 +36,12 @@ size$Alive<-as.numeric(size$Alive)
 size$Dead<-as.numeric(size$Dead)
 size$Height<-factor(size$Height)
 size$Tile<-factor(size$Tile)
+size$growth_percent<-size$Size_cm2/size$size_before_cm2*100
+
+#summary stats
+table(size$Site, size$Tile)
+tapply(size$size_before_cm2,size$Site, length)
+tapply(size$growth_percent,size$Site, mean)
 
 #plots
 hist(size$growth_cm2, main = '', xlab = 'Growth (cm2)') #distribution of growth is fairly normal
