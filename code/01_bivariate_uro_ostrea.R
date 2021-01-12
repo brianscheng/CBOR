@@ -40,6 +40,10 @@ table(data3$Site, data3$Date)
 #Lanis Beach      - 06/17, 09/17, 12/17, 04/18, 07/18
 #Pink House       -               12/17, 04/18,
 
+#how many quads have both species found in them? 
+which(data3$olys>0)
+which(data3$olys>0 & data3$drills>0)
+
 ####plotting####--------------------------------------------------------------------------------------------
 
 #make a double errorbar plot with site level data
@@ -65,11 +69,28 @@ data_mean<-data.frame(drills.mean, drills.sem, olys.mean, olys.sem)
 data_mean$site<-factor(row.names(data_mean))
 str(data_mean)
 
+plot1<-ggplot(data_mean, aes(x=drills.mean, y=olys.mean))+
+  geom_errorbar(ymin = olys.mean-olys.sem, ymax = olys.mean+olys.sem, width = 0)+
+  geom_errorbarh(xmin = drills.mean-drills.sem, xmax = drills.mean+drills.sem, height = 0)+
+  geom_point(fill="white", shape =21, size = 3)+
+  coord_cartesian((xlim = c(0, 30)), ylim = c(0,10))+theme_bw()+
+  theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
+        axis.text = element_text(size=14), axis.title = element_text(size = 16))+
+  labs(x= expression(paste("Drill density (0.25 ",m^{2},")")),
+       y= expression(paste("Oyster density (0.25 ",m^{2},")")))
+
+ppi=300
+png("figures/bivariate quadrat.png", width=9*ppi, height=9*ppi, res=ppi)
+plot1
+dev.off()
+
+#plot to get site labels
 ggplot(data_mean, aes(x=drills.mean, y=olys.mean))+geom_point()+
   geom_errorbar(ymin = olys.mean-olys.sem, ymax = olys.mean+olys.sem, width = 0)+
   geom_errorbarh(xmin = drills.mean-drills.sem, xmax = drills.mean+drills.sem, height = 0)+
   coord_cartesian((xlim = c(0, 30)), ylim = c(0,10))+theme_bw()+
   geom_text(aes(label=site), hjust = -.2, vjust = -.3)
+
 
 #second approach with spring quadrats only, 2017 for focal four and 2018 for remainder
 str(data2)
@@ -86,7 +107,7 @@ str(data.b)
 #7 sites, with 10 quadrats each to visualize relationship between oysters and drills
 
 ggplot(data.b,aes(x=drills, y=olys, color=Site))+geom_point()+
-  geom_jitter(width=.5, height=.5)+theme_bw()+labs(x="Drills (count/quadrat)", y="Oysters (count/quadrat)")
+  geom_jitter(width=.2, height=.2)+theme_bw()+labs(x="Drills (count/quadrat)", y="Oysters (count/quadrat)")
 
 ####analysis
 
@@ -111,3 +132,5 @@ p.out <- sum(abs(p) > abs(rho))    # Count of strict (absolute) exceedances, nee
 p.at <- sum(abs(p) == rho)    # Count of equalities, if any
 (p.out + p.at /2) / length(p) # Proportion of exceedances: the p-value, which is 0
 detach(data.b)
+
+
