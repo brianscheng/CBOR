@@ -76,8 +76,8 @@ plot1<-ggplot(data_mean, aes(x=drills.mean, y=olys.mean))+
   coord_cartesian((xlim = c(0, 30)), ylim = c(0,10))+theme_bw()+
   theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
         axis.text = element_text(size=14), axis.title = element_text(size = 16))+
-  labs(x= expression(paste("Drill density (0.25 ",m^{2},")")),
-       y= expression(paste("Oyster density (0.25 ",m^{2},")")))
+  labs(x= expression(paste("Drill density (0.25 ",m^{-2},")")),
+       y= expression(paste("Oyster density (0.25 ",m^{-2},")")))
 
 ppi=300
 png("figures/bivariate quadrat.png", width=9*ppi, height=9*ppi, res=ppi)
