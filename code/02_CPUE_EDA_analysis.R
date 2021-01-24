@@ -17,9 +17,10 @@ require(viridis)
 require(dplyr)
 require(pscl)
 require(car)
+require(here)
 
 #reading in clean data
-cpue<-read.csv('CBOR_cpue_clean_2020.csv')
+cpue<-read.csv(here('data/CBOR_cpue_clean_2020.csv'), stringsAsFactors = T)
 
 #Initial Look----------------------------------------------------------------
 #An initial look at the data shows that many of the counts that are less than 30 are members of our team:
@@ -55,7 +56,26 @@ cpue.plot2+geom_point(alpha=0.4, size=2)+
   ylab('Catch per Unit Effort')+
   xlab('Day of Year')
 
+#MS plot - Aramburu on left, lanis on right
+cpue.plot3<-ggplot(cpue, aes(x=day_of_year, y=CPUE, color=year)) #looking at CPUE across year and site
+plot<-cpue.plot3+geom_point(alpha=0.4, size=4)+
+  stat_summary(fun.args = list(mult=1),geom='pointrange', size=1)+
+  facet_wrap(~Site)+
+  theme_linedraw()+
+  theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
+        axis.text = element_text(size=16), axis.title = element_text(size = 18),
+        strip.background = element_blank(),
+        legend.title = element_text (size = 18),
+        legend.text = element_text (size = 16))+
+  scale_y_continuous(breaks = c(0,50, 100, 150, 200, 250, 300))+
+  coord_cartesian(ylim = c(0,300))+
+  ylab('Catch per unit effort')+
+  xlab('Day of Year')
 
+ppi=300
+png("figures/cpue.png", width=12*ppi, height=9*ppi, res=ppi)
+plot
+dev.off()
 #Models----------------------------------------------------------------------
 
 #started with CLMs with poisson errors
@@ -108,7 +128,22 @@ summary(site1)
 #seems to be a difference in cpue across site
 
 
+#brians modeling
+m0<-glmmTMB(drills.caught~1+(1|Site)+(1|year), data = cpue, offset = log(Person.hrs), family = nbinom2)
+m1<-glmmTMB(drills.caught~day_of_year+(1|Site)+(1|year), data = cpue, offset = log(Person.hrs), family = nbinom2)
+m2<-glmmTMB(drills.caught~day_of_year+Site+(1|year), data = cpue, offset = log(Person.hrs), family = nbinom2)
+m3<-glmmTMB(drills.caught~day_of_year*Site+(1|year), data = cpue, offset = log(Person.hrs), family = nbinom2)
 
+m4<-glmmTMB(drills.caught~day_of_year*year+(1|Site), data = cpue, offset = log(Person.hrs), family = nbinom2)
+m5<-glmmTMB(drills.caught~day_of_year*year+(1|Site), data = cpue, offset = log(Person.hrs), family = nbinom1)
+m6<-glmmTMB(drills.caught~day_of_year*year+(1|Site), data = cpue, offset = log(Person.hrs), family = poisson)
+model.sel(m0,m1,m2,m3) #m2 is best model
+model.sel(m3, m4,m5)
 
-
-
+summary(m0)
+summary(m1)
+summary(m2) #no effect of day of year
+summary(m3) #full model
+summary(m4)
+summary(m5)
+summary(m6)
