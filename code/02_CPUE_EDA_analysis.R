@@ -57,6 +57,9 @@ cpue.plot2+geom_point(alpha=0.4, size=2)+
   xlab('Day of Year')
 
 #MS plot - Aramburu on left, lanis on right
+A_col <- "#2D708EFF"
+B_col <- "#3CBB75FF"
+
 cpue.plot3<-ggplot(cpue, aes(x=day_of_year, y=CPUE, color=year)) #looking at CPUE across year and site
 plot<-cpue.plot3+geom_point(alpha=0.4, size=4)+
   stat_summary(fun.args = list(mult=1),geom='pointrange', size=1)+
@@ -70,10 +73,13 @@ plot<-cpue.plot3+geom_point(alpha=0.4, size=4)+
   scale_y_continuous(breaks = c(0,50, 100, 150, 200, 250, 300))+
   coord_cartesian(ylim = c(0,300))+
   ylab('Catch per unit effort')+
-  xlab('Day of Year')
+  xlab('Day of year')+
+  scale_fill_manual(values  = c(A_col, B_col)) +
+  scale_color_manual(values = c(A_col, B_col)) 
+plot
 
 ppi=300
-png("figures/cpue.png", width=12*ppi, height=9*ppi, res=ppi)
+png("figures/cpue.png", width=9*ppi, height=6*ppi, res=ppi)
 plot
 dev.off()
 #Models----------------------------------------------------------------------
@@ -137,8 +143,15 @@ m3<-glmmTMB(drills.caught~day_of_year*Site+(1|year), data = cpue, offset = log(P
 m4<-glmmTMB(drills.caught~day_of_year*year+(1|Site), data = cpue, offset = log(Person.hrs), family = nbinom2)
 m5<-glmmTMB(drills.caught~day_of_year*year+(1|Site), data = cpue, offset = log(Person.hrs), family = nbinom1)
 m6<-glmmTMB(drills.caught~day_of_year*year+(1|Site), data = cpue, offset = log(Person.hrs), family = poisson)
-model.sel(m0,m1,m2,m3) #m2 is best model
-model.sel(m3, m4,m5)
+
+m7<-glmmTMB(drills.caught~day_of_year+(1|Site)+(1|year), data = cpue, offset = log(Person.hrs), family = poisson)
+m8<-glmmTMB(drills.caught~day_of_year+(1|Site)+(1|year), data = cpue, offset = log(Person.hrs), family = nbinom2)
+m9<-glmmTMB(drills.caught~day_of_year*Site+(1|year), data = cpue, offset = log(Person.hrs), family = nbinom2)
+
+all.models<-model.sel(m0,m1,m2,m3,m4,m5,m6,m7,m8,m9) 
+all.models
+
+summary(model.avg(all.models, revised.var=FALSE))
 
 summary(m0)
 summary(m1)
@@ -147,3 +160,6 @@ summary(m3) #full model
 summary(m4)
 summary(m5)
 summary(m6)
+summary(m7)
+summary(m8)
+summary(m9) #model reported

@@ -1,0 +1,38 @@
+Date,Site,Treatment,Habitat,mean.uro,sem
+3/10/2017,Lanis Beach,Eradication,boulder,32.88889,10.08
+3/30/2017,Lanis Beach,Eradication,boulder,12.66667,3.75
+3/30/2017,Lanis Beach,Control,cobble,7.9,2.8
+3/30/2017,Lanis Beach,Eradication,cobble,2.7,1.26
+3/31/2017,Aramburu,Control,cobble,6.6,0.56
+3/31/2017,Aramburu,Eradication,cobble,4.4,1.27
+3/8/2017,Lanis Beach,Control,cobble,13,2.93
+3/8/2017,Lanis Beach,Eradication,cobble,0.8,0.42
+3/9/2017,Aramburu,Control,cobble,3.6,1.72
+3/9/2017,Aramburu,Eradication,cobble,5.3,1.33
+4/27/2017,Lanis Beach,Eradication,boulder,12.22222,4.19
+4/27/2017,Lanis Beach,Control,cobble,7.8,2.37
+4/27/2017,Lanis Beach,Eradication,cobble,0.4,0.4
+4/28/2017,Aramburu,Control,cobble,2.8,0.83
+4/28/2017,Aramburu,Eradication,cobble,4.1,1.55
+6/14/2017,Lanis Beach,Eradication,cobble,0,0
+6/14/2017,Lanis Beach,Eradication,boulder,8.555555556,15.1045337
+6/28/2017,Aramburu,Eradication,cobble,10.6,2.70472837
+7/27/2017,Aramburu,Control,cobble,6.9,0.924361642
+9/8/2017,Lanis Beach,Control,cobble,74.3,29.49239073
+9/8/2017,Lanis Beach,Eradication,cobble,2.4,1.066666667
+9/21/2017,Lanis Beach,Eradication,boulder,21.44444444,3.848199836
+3/18/2018,Lanis Beach,Control,cobble,19.3,6.738034662
+3/8/2018,Lanis Beach,Eradication,boulder,13.44444,2.587958822
+3/6/2018,Lanis Beach,Eradication,cobble,9.5,4.83792885
+3/8/2018,Aramburu,Control,cobble,2.5,0.731925055
+3/8/2018,Aramburu,Eradication,cobble,10.4,2.207059381
+4/25/2018,Lanis Beach,Eradication,cobble,0.6,0.426874949
+4/25/2018,Lanis Beach,Eradication,boulder,8.333333333,1.972026594
+4/26/2018,Lanis Beach,Control,cobble,5.222222222,2.179704363
+4/24/2018,Aramburu,Control,cobble,2.6,0.635959468
+4/24/2018,Aramburu,Eradication,cobble,1.3,0.578311719
+7/17/2018,Lanis Beach,Eradication,cobble,3.8,2.747928513
+7/17/2018,Lanis Beach,Eradication,boulder,51.77777778,23.76901448
+7/17/2018,Lanis Beach,Control,cobble,9.6,2.6
+7/14/2018,Aramburu,Control,cobble,3.9,2.509758731
+7/14/2018,Aramburu,Eradication,cobble,4.1,0.73711148

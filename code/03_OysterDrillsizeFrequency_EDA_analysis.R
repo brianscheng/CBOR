@@ -29,7 +29,7 @@ data %>%
   xlab('Day of Year') #2017: can maybe see a decrease in oyster drill size
 
 data %>% 
-  ggplot(aes(x=day_of_year, y=size, color=year))+
+  ggplot(aes(x=day_of_year, y=size, color=factor(year)))+
   geom_point(alpha=0.5, position = position_jitter())+
   stat_summary(fun.args = list(mult=1),geom='pointrange', size=0.75)+
   geom_smooth(method = 'lm')+

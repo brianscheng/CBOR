@@ -17,10 +17,16 @@ ggplot()+geom_sf(data=sfb, size=1, color="black", fill = "grey")+
   coord_sf(crs = "NAD83", xlim = c(-122.6, -122), ylim = c(37.4,38.2))  #sfb regional
 
 
-ggplot()+geom_sf(data=sfb, size=1, color="black")+       #sfb regional tweaked
+sfb.plot<-ggplot()+geom_sf(data=sfb, size=1, color="black", fill = "white")+       #sfb regional tweaked
   coord_sf(crs = "NAD83", xlim = c(-122.6, -122), ylim = c(37.4,38.2))+  
   theme_bw()+
-  theme(panel.background =  element_rect (fill="aliceblue"))
+  theme(axis.text = element_blank(), axis.ticks = element_blank())
+sfb.plot
+
+ppi=300
+png("figures/sfb_inset.png", width=6*ppi, height=9*ppi, res=ppi)
+sfb.plot
+dev.off()
 
 rb<-ggplot()+geom_sf(data=sfb, size=0.8, color="black", fill = "white")+
   coord_sf(crs = "NAD83", xlim = c(-122.53, -122.44), ylim = c(37.85, 37.9)) #richardson bay
@@ -36,11 +42,16 @@ st_crs(delta)             #check coordinate reference system
 ggplot()+geom_sf(data=delta, size=1, color="black", fill = "white")+coord_sf(crs = "WGS84")  
 
 
-ggplot()+geom_sf(data=delta, size=1, color="black", fill ="white")+       
+rb2<-ggplot()+geom_sf(data=delta, size=1, color="black", fill ="white")+       
   coord_sf(crs = "WGS84", xlim = c(-122.53, -122.41), ylim = c(37.85,37.9))+  
   theme_bw()+
   theme(panel.background =  element_rect (fill="light grey"),
   panel.grid.major = element_blank(), panel.grid.minor = element_blank())
+rb2
+ppi=300
+png("figures/rb2.png", width=9*ppi, height=6*ppi, res=ppi)
+rb2
+dev.off()
 
 
 #blog https://www.r-spatial.org/r/2018/10/25/ggplot2-sf-2.html

@@ -58,7 +58,7 @@ proportional.survival
 
 #graphical exploration
 cage.plot<-ggplot(data.mid,aes(x=Cage.treat,y=prop.surv, fill=Erad.treat))+geom_boxplot()+facet_grid(Site2~.)+theme_bw()+
-  labs(y="Oyster survival (proportional) ", x="Treatment")+
+  labs(y="Oyster survival", x="Cage treatment")+
   theme(legend.title=element_text(size=16),legend.text=element_text(size=14),
         axis.text.y=element_text(size=16),axis.title.y=element_text(size=18, vjust=1.2),
         axis.text.x=element_text(size=16),axis.title.x=element_text(size=18),
@@ -71,6 +71,28 @@ cage.plot2
 ppi=300
 png("figures/oyster cage plot.png", width=12*ppi, height=9*ppi, res=ppi)
 cage.plot2
+dev.off()
+
+#point estimate plot alternative
+data.mid$Cage.treat<-factor(data.mid$Cage.treat, levels = c("open", "partial","closed"))
+A_col <- "#2D708EFF"
+B_col <- "#3CBB75FF"
+cage.plot.alt<-ggplot(data.mid,aes(x=Cage.treat,y=prop.surv))+geom_boxplot(aes(fill=Erad.treat))+
+  geom_point(shape = 21,size = 2.5, position = position_jitterdodge(jitter.width = 0.05, jitter.height = 0.05), aes(group=Erad.treat, fill=Erad.treat))+
+  facet_grid(Site2~.)+theme_bw()+
+  labs(y="Oyster survival", x="Cage treatment", fill = "Treatment")+
+  theme(legend.title=element_text(size=16),legend.text=element_text(size=14),
+        axis.text.y=element_text(size=16),axis.title.y=element_text(size=18, vjust=1.2),
+        axis.text.x=element_text(size=16),axis.title.x=element_text(size=18, vjust=-0.5),
+        panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
+        strip.text.y = element_blank())+
+  scale_fill_manual(values  = c(A_col, B_col)) +
+  scale_color_manual(values = c(A_col, B_col)) 
+cage.plot.alt
+
+ppi=300
+png("figures/oyster cage plot alt.png", width=9*ppi, height=6*ppi, res=ppi)
+cage.plot.alt
 dev.off()
 
 #data.mid analysis using glmer
