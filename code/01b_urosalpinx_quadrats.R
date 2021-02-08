@@ -28,7 +28,9 @@ summary<-read.csv("data/Benthic survey Richardson Bay MEANS 2018-10-14.csv", na.
 str(summary)
 summary <- summary %>%
   filter (Habitat == "cobble") %>%
-  mutate (rdate = as.POSIXct(x=Date, format = "%m/%d/%Y"))
+  mutate (rdate = as.POSIXct(x=Date, format = "%m/%d/%Y")) %>%
+  mutate (Treatment = case_when(Treatment == "Control" ~ "Control",
+                                Treatment == "Eradication" ~ "Removal"))
   
 A_col <- "#2D708EFF"
 B_col <- "#3CBB75FF"
@@ -37,7 +39,7 @@ B_col <- "#3CBB75FF"
 plot<-ggplot(summary,aes(x=rdate, y=mean.uro, color=Treatment))+
   geom_point(size=3)+facet_grid(Site~., scales="free_y")+
   geom_errorbar(data=summary,aes(ymin=mean.uro-sem,ymax=mean.uro+sem), width=0, size=1)+geom_line()+
-  labs(y=expression(paste("Drill density (0.25 ",m^{-2},")")), x="Date (month-year)")+theme_bw()+
+  labs(y=expression(paste("Drill density (0.25 ",m^{-2},")")), x="Date (year-month)")+theme_bw()+
   theme(legend.title=element_text(size=16),legend.text=element_text(size=14),
         axis.text.y=element_text(size=16),axis.title.y=element_text(size=18, vjust=1.2),
         axis.text.x=element_text(size=16),axis.title.x=element_text(size=18),
@@ -45,7 +47,8 @@ plot<-ggplot(summary,aes(x=rdate, y=mean.uro, color=Treatment))+
         panel.grid.major = element_blank(), panel.grid.minor = element_blank())+
   scale_fill_manual(values  = c(A_col, B_col)) +
   scale_color_manual(values = c(A_col, B_col)) +
-  scale_x_datetime(date_breaks = "3 months",labels = date_format("%m-%y"))
+  scale_x_datetime(date_breaks = "3 months",labels = date_format("%y-%m"))+
+  geom_hline(yintercept = 1.25, linetype = "dashed")
 
 plot
 ppi=300
