@@ -95,6 +95,25 @@ png("figures/oyster cage plot alt.png", width=9*ppi, height=6*ppi, res=ppi)
 cage.plot.alt
 dev.off()
 
+#drilled plot
+data.mid$prop.drilled<-data.mid$Drilled/data.mid$Initial.oys
+cage.plot.drilled<-ggplot(data.mid,aes(x=Cage.treat,y=prop.drilled))+geom_boxplot(aes(fill=Erad.treat))+
+  geom_point(shape = 21,size = 2.5, position = position_jitterdodge(jitter.width = 0.05, jitter.height = 0.05), aes(group=Erad.treat, fill=Erad.treat))+
+  facet_grid(Site2~.)+theme_bw()+
+  labs(y="Drilled oysters (proportional)", x="Cage treatment", fill = "Treatment")+
+  theme(legend.title=element_text(size=16),legend.text=element_text(size=14),
+        axis.text.y=element_text(size=16),axis.title.y=element_text(size=18, vjust=1.2),
+        axis.text.x=element_text(size=16),axis.title.x=element_text(size=18, vjust=-0.5),
+        panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
+        strip.text.y = element_blank())+
+  scale_fill_manual(values  = c(A_col, B_col)) +
+  scale_color_manual(values = c(A_col, B_col)) 
+cage.plot.drilled
+
+ppi=300
+png("figures/oyster cage plot drilled.png", width=9*ppi, height=6*ppi, res=ppi)
+cage.plot.drilled
+dev.off()
 #data.mid analysis using glmer
 m1<-glmer(y.mid~ Cage.treat * Erad.treat + (1|Site), family="binomial", data=data.mid)
 summary(m1)

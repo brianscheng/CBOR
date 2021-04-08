@@ -37,13 +37,14 @@ data<-data %>%
                             Site == "Lanis" ~ "Lanis Beach",
                             Site == "Cove" ~ "Lanis Beach")) %>%
   mutate (Site = factor(Site)) %>%
-  mutate (growth_percent = Size_cm2/size_before_cm2*100)
+  mutate (growth_percent = Size_cm2/size_before_cm2*100) %>%
+  mutate (Tile = factor(Tile))
 str(data)
 
 #summary stats
-table(size$Site, size$Tile)
-tapply(size$size_before_cm2,size$Site, length)
-tapply(size$growth_percent,size$Site, mean)
+table(data$Site, data$Tile)
+tapply(data$size_before_cm2,list(data$Site,data$Treatment), length)
+tapply(data$growth_percent,data$Site, mean)
 
 #plots
 hist(size$growth_cm2, main = '', xlab = 'Growth (cm2)') #distribution of growth is fairly normal
@@ -76,6 +77,19 @@ ppi=300
 png("figures/oyster_growth.png", width=9*ppi, height=6*ppi, res=ppi)
 plot
 dev.off()
+
+#visualizing tile variation
+plot2<-ggplot(data, aes(x = Tile, y=growth_cm2, fill = Treatment))+
+  geom_boxplot()+facet_grid(.~Site)+theme_bw()+
+  theme(legend.title=element_text(size=16),legend.text=element_text(size=14),
+        axis.text.y=element_text(size=16),axis.title.y=element_text(size=18, vjust=1.2),
+        axis.text.x=element_text(size=16),axis.title.x=element_text(size=18, vjust=-0.5),
+        panel.grid.major = element_blank(), panel.grid.minor = element_blank())+
+  labs(y= expression(paste("Oyster growth (",cm^{2},")")))+
+  scale_fill_manual(values  = c(A_col, B_col)) +
+  scale_color_manual(values = c(A_col, B_col)) 
+plot2
+
 
 #Models-------------------------------------------------------------
 #used GLMMs to model growth against site, with a random effect of Tile

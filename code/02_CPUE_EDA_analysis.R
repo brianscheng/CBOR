@@ -70,8 +70,8 @@ plot<-cpue.plot3+geom_point(alpha=0.4, size=4)+
         strip.background = element_blank(),
         legend.title = element_text (size = 18),
         legend.text = element_text (size = 16))+
-  scale_y_continuous(breaks = c(0,50, 100, 150, 200, 250, 300))+
-  coord_cartesian(ylim = c(0,300))+
+  scale_y_continuous(breaks = c(0,50, 100, 150, 200, 250, 300), limits = c(0,300))+
+  scale_x_continuous(breaks = c(70, 90, 110, 130, 150), limits = c(60,160))+
   ylab('Catch per unit effort')+
   xlab('Day of year')+
   scale_fill_manual(values  = c(A_col, B_col)) +
