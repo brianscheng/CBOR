@@ -133,4 +133,22 @@ summary(glht(m2, linfct = rbind(K1, K2)))
 
 glht(model = m2, linfct = mcp(Erad.treat="Tukey"))
 
+#all tidal heights
+cage.plot.allheights<-ggplot(data,aes(x=Cage.treat,y=prop.surv))+geom_boxplot(aes(fill=Cage.treat))+
+  facet_grid(Height~Site2)+theme_bw()+
+  labs(y="Oyster survival", x="Cage Treatment", fill = "Treatment")+
+  theme(legend.title=element_text(size=16),legend.text=element_text(size=14),
+        axis.text.y=element_text(size=16),axis.title.y=element_text(size=18, vjust=1.2),
+        axis.text.x=element_text(size=16),axis.title.x=element_text(size=18, vjust=-0.5),
+        panel.grid.major = element_blank(), panel.grid.minor = element_blank())
+cage.plot.allheights
+str(data)
 
+cage.plot.allheights.b<-ggplot(data,aes(x=Height,y=prop.surv))+geom_boxplot(aes(fill=Cage.treat))+
+  facet_grid(Site2~.)+theme_bw()+
+  labs(y="Oyster survival", x="Tidal height", fill = "Treatment")+
+  theme(legend.title=element_text(size=16),legend.text=element_text(size=14),
+        axis.text.y=element_text(size=16),axis.title.y=element_text(size=18, vjust=1.2),
+        axis.text.x=element_text(size=16),axis.title.x=element_text(size=18, vjust=-0.5),
+        panel.grid.major = element_blank(), panel.grid.minor = element_blank())
+cage.plot.allheights.b

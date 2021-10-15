@@ -86,7 +86,7 @@ str(summary.b.Lani)
 
 plot.b.Lani<-ggplot(summary.b.Lani,aes(x=rdate, y=mean.uro.m2, color=Treatment, shape = Habitat))+
   geom_point(size=3)+
-  geom_errorbar(data=summary,aes(ymin=mean.uro.m2-sem.m2,ymax=mean.uro.m2+sem.m2), width=0, size=1)+geom_line()+
+  geom_errorbar(data=summary.b.Lani,aes(ymin=mean.uro.m2-sem.m2,ymax=mean.uro.m2+sem.m2), width=0, size=1)+geom_line()+
   labs(y=expression(paste("Drill density (",m^{-2},")")), x="Date (year-month)")+theme_bw()+
   theme(legend.title=element_text(size=16),legend.text=element_text(size=14),
         axis.text.y=element_text(size=16),axis.title.y=element_text(size=18, vjust=1.2),
@@ -99,9 +99,27 @@ plot.b.Lani<-ggplot(summary.b.Lani,aes(x=rdate, y=mean.uro.m2, color=Treatment, 
   geom_hline(yintercept = 5, linetype = "dashed")
 plot.b.Lani
 
-
-plot.b.Lani<-ggplot(summary.b.Lani,aes(x=rdate, y=mean.uro.m2, color=Treatment, shape = Habitat))+
-  geom_point(size=3)+
-  geom_errorbar(data=summary,aes(ymin=mean.uro.m2-sem.m2,ymax=mean.uro.m2+sem.m2), width=0, size=1)+geom_line()
+ppi=300
+png("figures/drill_time_series_Lani_b.png", width=9*ppi, height=4*ppi, res=ppi)
 plot.b.Lani
+dev.off()
 
+plot.b.Aram<-ggplot(summary.b.Aram,aes(x=rdate, y=mean.uro.m2, color=Treatment, shape = Habitat))+
+  geom_point(size=3)+
+  geom_errorbar(data=summary.b.Aram,aes(ymin=mean.uro.m2-sem.m2,ymax=mean.uro.m2+sem.m2), width=0, size=1)+geom_line()+
+  labs(y=expression(paste("Drill density (",m^{-2},")")), x="Date (year-month)")+theme_bw()+
+  theme(legend.title=element_text(size=16),legend.text=element_text(size=14),
+        axis.text.y=element_text(size=16),axis.title.y=element_text(size=18, vjust=1.2),
+        axis.text.x=element_text(size=16),axis.title.x=element_text(size=18),
+        strip.background = element_blank(),strip.text = element_blank(),        
+        panel.grid.major = element_blank(), panel.grid.minor = element_blank())+
+  scale_fill_manual(values  = c(A_col, B_col)) +
+  scale_color_manual(values = c(A_col, B_col)) +
+  scale_x_datetime(date_breaks = "3 months",labels = date_format("%y-%m"))+
+  geom_hline(yintercept = 5, linetype = "dashed")
+plot.b.Aram
+
+ppi=300
+png("figures/drill_time_series_Aram_b.png", width=9*ppi, height=4*ppi, res=ppi)
+plot.b.Aram
+dev.off()

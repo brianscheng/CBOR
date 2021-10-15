@@ -6,7 +6,7 @@ library(ggsn)
 
 sfb<-st_read("data/map/bayarea_general.shp")
 
-tst_geometry_type(sfb)
+st_geometry_type(sfb)
 st_crs(sfb)             #check coordinate reference system
 st_bbox(sfb)            #find extent
 sfb                     #view all metadata
