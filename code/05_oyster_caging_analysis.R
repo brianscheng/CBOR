@@ -134,21 +134,33 @@ summary(glht(m2, linfct = rbind(K1, K2)))
 glht(model = m2, linfct = mcp(Erad.treat="Tukey"))
 
 #all tidal heights
-cage.plot.allheights<-ggplot(data,aes(x=Cage.treat,y=prop.surv))+geom_boxplot(aes(fill=Cage.treat))+
-  facet_grid(Height~Site2)+theme_bw()+
-  labs(y="Oyster survival", x="Cage Treatment", fill = "Treatment")+
+
+data2<-filter(data, Site == "A-south" | Site == "Cove") #select only control sites
+table(data2$Height)
+A_col <- "#404788FF"
+B_col <- "#238A8DFF"
+C_col <- "#55C667FF"
+
+cage.plot.allheights<-ggplot(data2,aes(x=Height,y=prop.surv))+geom_boxplot(aes(fill=Cage.treat))+
+  facet_grid(Site2~.)+theme_bw()+
+  labs(y="Oyster survival", x="Elevation (m)", fill = "Treatment")+
   theme(legend.title=element_text(size=16),legend.text=element_text(size=14),
         axis.text.y=element_text(size=16),axis.title.y=element_text(size=18, vjust=1.2),
         axis.text.x=element_text(size=16),axis.title.x=element_text(size=18, vjust=-0.5),
-        panel.grid.major = element_blank(), panel.grid.minor = element_blank())
+        panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
+        strip.text = element_blank(), strip.background = element_blank())+
+  scale_fill_manual(values  = c(A_col, B_col, C_col)) +
+  scale_color_manual(values = c(A_col, B_col, C_col)) +
+  scale_y_continuous(breaks = c (0, 0.2, 0.4, 0.6, 0.8, 1.0)) +
+  coord_cartesian (ylim = c(0,1.2))
 cage.plot.allheights
 str(data)
 
-cage.plot.allheights.b<-ggplot(data,aes(x=Height,y=prop.surv))+geom_boxplot(aes(fill=Cage.treat))+
-  facet_grid(Site2~.)+theme_bw()+
-  labs(y="Oyster survival", x="Tidal height", fill = "Treatment")+
-  theme(legend.title=element_text(size=16),legend.text=element_text(size=14),
-        axis.text.y=element_text(size=16),axis.title.y=element_text(size=18, vjust=1.2),
-        axis.text.x=element_text(size=16),axis.title.x=element_text(size=18, vjust=-0.5),
-        panel.grid.major = element_blank(), panel.grid.minor = element_blank())
-cage.plot.allheights.b
+ppi=300
+png("figures/elevation oyster cage plot.png", width=9*ppi, height=6*ppi, res=ppi)
+cage.plot.allheights
+dev.off()
+
+
+
+  
